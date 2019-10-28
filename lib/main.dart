@@ -4,6 +4,7 @@ import 'safe_area_page.dart';
 import 'expand_page.dart';
 import 'animated_container_page.dart';
 import 'opacity_page.dart';
+import 'future_builder_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +27,7 @@ class WidgetsList extends StatefulWidget {
 }
 
 class WidgetsListState extends State<WidgetsList> {
-  final _widgetNames = ['SafeArea', 'Expand', 'Wrap', 'AnimatedContainer', 'Opacity'];
+  final _widgetNames = ['SafeArea', 'Expand', 'Wrap', 'AnimatedContainer', 'Opacity', 'FutureBuilder'];
 
   Widget _buildWidgetsList() {
     return ListView.separated(
@@ -59,6 +60,9 @@ class WidgetsListState extends State<WidgetsList> {
         }else if(widgetName == 'Opacity'){
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => OpacityPage()));
+        }else if(widgetName == 'FutureBuilder'){
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FutureBuilderPage()));
         }
       },
     );
