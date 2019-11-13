@@ -5,6 +5,7 @@ import 'expand_page.dart';
 import 'animated_container_page.dart';
 import 'opacity_page.dart';
 import 'future_builder_page.dart';
+import 'image_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,13 +22,20 @@ class MyApp extends StatelessWidget {
 class WidgetsList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return WidgetsListState();
   }
 }
 
 class WidgetsListState extends State<WidgetsList> {
-  final _widgetNames = ['SafeArea', 'Expand', 'Wrap', 'AnimatedContainer', 'Opacity', 'FutureBuilder'];
+  final _widgetNames = [
+    'SafeArea',
+    'Expand',
+    'Wrap',
+    'AnimatedContainer',
+    'Opacity',
+    'FutureBuilder',
+    'Image'
+  ];
 
   Widget _buildWidgetsList() {
     return ListView.separated(
@@ -45,24 +53,54 @@ class WidgetsListState extends State<WidgetsList> {
     return GestureDetector(
       child: ListTile(title: Text(widgetName)),
       onTap: () {
-        if (widgetName == 'SafeArea') {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SafeAreaPage()));
-        } else if (widgetName == 'Expand') {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ExpandPage()));
-        } else if (widgetName == 'Wrap') {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => WrapPage()));
-        }else if(widgetName == 'AnimatedContainer'){
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AnimatedContainerPage()));
-        }else if(widgetName == 'Opacity'){
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => OpacityPage()));
-        }else if(widgetName == 'FutureBuilder'){
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FutureBuilderPage()));
+        switch (widgetName) {
+          case 'SafeArea':
+            {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SafeAreaPage()));
+            }
+            break;
+          case 'Expand':
+            {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ExpandPage()));
+            }
+            break;
+          case 'Wrap':
+            {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => WrapPage()));
+            }
+            break;
+          case 'AnimatedContainer':
+            {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AnimatedContainerPage()));
+            }
+            break;
+          case 'Opacity':
+            {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => OpacityPage()));
+            }
+            break;
+          case 'FutureBuilder':
+            {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FutureBuilderPage()));
+            }
+            break;
+          case 'Image':
+            {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ImagePage()));
+            }
+            break;
+          default:
+            {}
+            break;
         }
       },
     );
